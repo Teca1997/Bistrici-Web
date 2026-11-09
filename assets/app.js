@@ -39,8 +39,8 @@
     el('export').disabled=!who;
     el('exportJson').disabled=el('export').disabled;
     for (const id of ['export','exportJson']) el(id).title=who?'Preuzmi kod iz uređivača.':'Upiši ime i prezime.';
-    if(who&&!active) notice('Rad možeš odmah preuzeti. Za automatsko lokalno spremanje odaberi „Otvori rad učenika”.');
-    if(active&&!same(active,who)) {clearTimeout(timer);status('Podaci su promijenjeni. Klikni „Otvori rad učenika”.');}
+    if(who&&!active) notice('Rad možeš odmah preuzeti. Za automatsko lokalno spremanje odaberi „Nastavi spremljeni rad”.');
+    if(active&&!same(active,who)) {clearTimeout(timer);status('Podaci su promijenjeni. Klikni „Nastavi spremljeni rad”.');}
   }
   for(const id of ['first','last'])for(const event of ['input','change'])el(id).addEventListener(event,refreshIdentity);
   el('openStudent').onclick=() => {
@@ -77,7 +77,7 @@
     if(!active||!same(active,identity()))return;
     if(!confirm('Obrisati lokalni rad ovog učenika za ovu lekciju? Preuzete datoteke ostaju sačuvane.'))return;
     clearTimeout(timer);
-    try {localStorage.removeItem(key(active));active=null;setCode(lesson.starter);runner.stop();el('owner').textContent='Nije odabran učenik.';status('Lokalni rad obrisan. Za nastavak ponovno otvori rad učenika.');refreshIdentity();}
+    try {localStorage.removeItem(key(active));active=null;setCode(lesson.starter);runner.stop();el('owner').textContent='Nije odabran učenik.';status('Lokalni rad obrisan. Za nastavak odaberi „Nastavi spremljeni rad”.');refreshIdentity();}
     catch{notice('Brisanje nije dostupno.');}
   };
   function download(json) {
