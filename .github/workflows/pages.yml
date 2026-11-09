@@ -19,6 +19,8 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
+      - name: Automatski izradi poveznice na objavljene lekcije
+        run: python3 .github/scripts/build_catalog.py
       - uses: actions/configure-pages@v5
       - name: Izoliraj sadrzaj stranice od povijesti i workflowa
         run: |
