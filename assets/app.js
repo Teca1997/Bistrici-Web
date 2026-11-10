@@ -91,17 +91,18 @@
   el('import').onclick=()=>el('file').click();
   el('file').onchange=async()=>{
     const file=el('file').files[0];el('file').value='';if(!file)return;
-    if(!/\.(js|json)$/i.test(file.name)||file.size>200000){notice('Odaberi .js ili Bistrići .json datoteku do 200 kB.');return;}
+    if(file.size>200000){notice('Datoteka je prevelika. Odaberi rad do 200 kB.');return;}
+    if(!/\.(js|json)$/i.test(file.name)){notice('Datoteka „'+file.name+'” nije .js ili Bistrići .json rad. Odaberi spremljenu .js datoteku iz mape Preuzimanja (Downloads), pa je učitaj ovim gumbom. Najveća veličina je 200 kB.');return;}
     try {
       let code=await file.text();
       if(/\.json$/i.test(file.name)){
         const work=JSON.parse(code);
         if(work.format!=='bistrici-work'||work.version!==1||work.lesson!==lesson.id||typeof work.code!=='string')throw new Error('Strukturirani rad ne pripada ovoj lekciji.');
-        if(!same(active,work.student))throw new Error('Najprije upiši vlasnika datoteke i otvori njegov rad.');code=work.code;
+        if(!same(identity(),work.student))throw new Error('Za ovaj .json rad upiši pripadajuće ime i prezime. Nije potrebno prethodno otvoriti spremljeni rad.');code=work.code;
       }
       if(code.length>200000||code.includes('\u0000'))throw new Error('Datoteka nije podržan tekstualni JavaScript.');
       if(!confirm('Učitavanje će zamijeniti kod u uređivaču i lokalnu kopiju aktivnog učenika. Sačuvaj sadašnji rad izvozom ako ti je potreban. Nastaviti?'))return;
-      runner.stop();setCode(code);changed=true;save();notice('Rad je učitan. Nije pokrenut.');
+      runner.stop();setCode(code);changed=true;save();notice('Učitan je rad „'+file.name+'”. Kod je u uređivaču; za izvršavanje klikni Pokreni.');
     }catch(err){notice('Učitavanje nije uspjelo: '+err.message);}
   };
   window.addEventListener('pagehide',()=>{if(changed)save();});
