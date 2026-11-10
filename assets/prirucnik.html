@@ -1,0 +1,58 @@
+<!doctype html><html lang="hr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>JavaScript priručnik za učenike – Bistrići</title><style>body{font:18px/1.65 system-ui,sans-serif;max-width:900px;margin:auto;padding:24px;color:#182638;background:#f7f9fc}a{color:#174f91}section{background:white;border:1px solid #cbd5e1;border-radius:12px;padding:22px;margin:24px 0;scroll-margin-top:16px}pre{background:#13283b;color:#f4f7fc;padding:16px;overflow:auto;border-radius:8px;line-height:1.5}code{font-family:monospace}h1,h2{line-height:1.25}.note{border-left:4px solid #3975b5;padding-left:18px}@media print{body{font-size:12pt;background:white}section{break-inside:avoid}pre{white-space:pre-wrap;color:black;background:#eee}nav{display:none}}</style><header><h1>JavaScript priručnik za učenike</h1><p>Bistrići – Matematički laboratorij · 5.–8. razred</p><p>Otvori priručnik uz svoju lekciju. Za prvi susret pročitaj dijelove 1–6. Ostale dijelove čitaj postupno, kada ih zatrebaš. Primjeri služe učenju jezika; matematičke zadatke iz lekcije riješi svojim programom.</p><p class="note">Radi ovim redom: predvidi → napiši → pokreni → usporedi → objasni. Primjere možeš prepisati u uređivač svoje lekcije, ali prije zamjene spremi svoj rad. Ova stranica ne izvršava kod. Za papir ili PDF upotrijebi Ispis u pregledniku.</p></header><nav aria-label="Sadržaj"><h2>Sadržaj</h2><ul><li><a href="#pocetak">1. Kako početi</a></li><li><a href="#ispis">2. Ispis na ekran: console.log()</a></li><li><a href="#varijable">3. Varijable: imenovane vrijednosti</a></li><li><a href="#promjena">4. Promjena vrijednosti i redoslijed</a></li><li><a href="#racunanje">5. Računske operacije</a></li><li><a href="#tekst">6. Broj i tekst nisu isto</a></li><li><a href="#uvjeti">7. Uvjeti: odaberi postupak</a></li><li><a href="#petlje">8. Petlje: ponovi račun</a></li><li><a href="#nizovi">9. Nizovi: više povezanih vrijednosti</a></li><li><a href="#funkcije">10. Funkcije: postupak koji ponavljaš</a></li><li><a href="#pogreske">11. Pogreške su dio rada</a></li></ul></nav><main><section id="pocetak"><h2>1. Kako početi</h2><p>Program pišeš u uređivaču u lekciji. Klikni Pokreni i čitaj vizualnu konzolu ispod uređivača. Ne trebaš otvarati razvojne alate. Prije pokretanja predvidi rezultat, zatim ga usporedi s ispisom. Svako pokretanje počinje iznova; varijable iz prethodnog pokretanja ne ostaju.</p><h3>Primjer</h3><pre data-example><code>console.log(&quot;Pozdrav, Bistrići!&quot;);</code></pre><h3>Očekivani ispis</h3><pre data-output>Pozdrav, Bistrići!</pre><p><strong>Probaj samostalno:</strong> Promijeni poruku u vlastitu rečenicu pa je pokreni.</p></section><section id="ispis"><h2>2. Ispis na ekran: console.log()</h2><p>console.log() prikazuje ono što napišeš u zagradama. Tekst stavi u ravne navodnike, a broj i račun piši bez navodnika. Svaki poziv stvara novi redak. Zarezom možeš odvojiti poruku i rezultat. Piši console.log malim slovima; nakon naredbe stavi točku sa zarezom.</p><h3>Primjer</h3><pre data-example><code>console.log(&quot;Broj olovaka:&quot;, 9);
+console.log(9 + 4);
+console.log(&quot;9 + 4&quot;);</code></pre><h3>Očekivani ispis</h3><pre data-output>Broj olovaka: 9
+13
+9 + 4</pre><p><strong>Probaj samostalno:</strong> Ispiši svoje ime, broj 15 i rezultat računa 15 − 6, svako u novom retku.</p></section><section id="varijable"><h2>3. Varijable: imenovane vrijednosti</h2><p>Varijabla pamti vrijednost pod imenom koje odabereš. let uvodi novu varijablu, znak = dodjeljuje joj vrijednost. Kad poslije koristiš ime bez navodnika, program uzima spremljenu vrijednost. Imena mogu biti različita: brojKnjiga i x jednako su dopušteni. Biraj razumljiva imena, bez razmaka i bez početne znamenke. Velika i mala slova razlikuju se: broj i Broj nisu isto.</p><h3>Primjer</h3><pre data-example><code>let brojKnjiga = 9;
+let noveKnjige = 4;
+let ukupno = brojKnjiga + noveKnjige;
+console.log(&quot;Ukupno:&quot;, ukupno);</code></pre><h3>Očekivani ispis</h3><pre data-output>Ukupno: 13</pre><p><strong>Probaj samostalno:</strong> Napiši program s vlastitim nazivima varijabli za dvije količine. Promijeni jednu količinu i provjeri novi zbroj.</p></section><section id="promjena"><h2>4. Promjena vrijednosti i redoslijed</h2><p>Naredbe se izvršavaju odozgo prema dolje. Već uvedenoj varijabli promijeni vrijednost bez novog let. Desna strana izraza prvo se izračuna pa se rezultat spremi lijevo. Zato bodovi = bodovi + 3 znači povećanje, a nije matematička jednakost. const koristi kada vrijednost nećeš ponovno dodjeljivati.</p><h3>Primjer</h3><pre data-example><code>let bodovi = 6;
+console.log(bodovi);
+bodovi = bodovi + 3;
+console.log(bodovi);
+const brojStranicaTrokuta = 3;
+console.log(brojStranicaTrokuta);</code></pre><h3>Očekivani ispis</h3><pre data-output>6
+9
+3</pre><p><strong>Probaj samostalno:</strong> Počni s 20 žetona, oduzmi 7 pa dodaj 2. Ispiši stanje nakon svake promjene.</p></section><section id="racunanje"><h2>5. Računske operacije</h2><p>Koristi + za zbrajanje, - za oduzimanje, * za množenje i / za dijeljenje. ** je potenciranje, a % ostatak pri dijeljenju. Množenje i dijeljenje imaju prednost pred zbrajanjem; zagradama određuješ redoslijed. Decimalni zapis u kodu koristi točku: 2.5, a ne 2,5. Dijeljenje nulom ovdje izbjegavaj. Računala neke decimalne vrijednosti prikazuju približno.</p><h3>Primjer</h3><pre data-example><code>console.log(8 + 3 * 2);
+console.log((8 + 3) * 2);
+console.log(17 % 5);
+console.log(2 ** 4);
+console.log(7 / 2);</code></pre><h3>Očekivani ispis</h3><pre data-output>14
+22
+2
+16
+3.5</pre><p><strong>Probaj samostalno:</strong> Predvidi i provjeri 19 % 4. Objasni vezu s dijeljenjem s ostatkom na papiru.</p></section><section id="tekst"><h2>6. Broj i tekst nisu isto</h2><p>Navodnici označavaju tekst. Znak + zbraja brojeve, ali spaja tekstove. Za poruku uz broj najjednostavnije je koristiti zarez u console.log(). Komentar počinje s // i služi za objašnjenje; program ga ne izvršava.</p><h3>Primjer</h3><pre data-example><code>// Usporedi tri ispisa.
+console.log(6 + 2);
+console.log(&quot;6&quot; + &quot;2&quot;);
+console.log(&quot;Rezultat:&quot;, 6 + 2);</code></pre><h3>Očekivani ispis</h3><pre data-output>8
+62
+Rezultat: 8</pre><p><strong>Probaj samostalno:</strong> Napiši vlastiti par primjera koji pokazuje razliku između broja i teksta.</p></section><section id="uvjeti"><h2>7. Uvjeti: odaberi postupak</h2><p>Ovaj dio čitaj kada lekcija traži odluku. if izvršava blok ako je uvjet istinit, a else ako nije. Za usporedbu koristi === (jednako), !== (različito), &lt;, &gt;, &lt;= i &gt;=. Jedan znak = dodjeljuje vrijednost i nije provjera jednakosti. &amp;&amp; znači oba uvjeta, || barem jedan uvjet.</p><h3>Primjer</h3><pre data-example><code>let temperatura = -2;
+if (temperatura &lt; 0) {
+  console.log(&quot;Ispod nule&quot;);
+} else {
+  console.log(&quot;Nula ili više&quot;);
+}</code></pre><h3>Očekivani ispis</h3><pre data-output>Ispod nule</pre><p><strong>Probaj samostalno:</strong> Provjeri program s -1, 0 i 1. Zašto je nula važan probni primjer?</p></section><section id="petlje"><h2>8. Petlje: ponovi račun</h2><p>Čitaj kada treba ponavljati postupak. U for petlji najprije postaviš brojač, zatim uvjet nastavka i promjenu brojača. i++ povećava i za 1. Blok u vitičastim zagradama izvršava se za svaki dopušteni i. while ponavlja blok dok je uvjet istinit; vrijednosti moraju napredovati prema završetku. Ako petlja ne završava, klikni Zaustavi i popravi uvjet ili promjenu.</p><h3>Primjer</h3><pre data-example><code>let ukupno = 0;
+for (let i = 1; i &lt;= 4; i++) {
+  ukupno = ukupno + i;
+  console.log(i, ukupno);
+}</code></pre><h3>Očekivani ispis</h3><pre data-output>1 1
+2 3
+3 6
+4 10</pre><p><strong>Probaj samostalno:</strong> Napravi tablicu brojača i zbroja na papiru. Zatim promijeni završnu granicu na 6 i usporedi trag.</p></section><section id="nizovi"><h2>9. Nizovi: više povezanih vrijednosti</h2><p>Čitaj kada zadatak traži popis ili tablicu. Niz zapisujemo u uglatim zagradama. Prvi element ima indeks 0, a length daje broj elemenata. Posljednji indeks je duljina minus 1. Za obilazak svih elemenata možeš koristiti for...of.</p><h3>Primjer</h3><pre data-example><code>let mjerenja = [4, 7, 5];
+console.log(mjerenja[0]);
+console.log(mjerenja.length);
+for (let mjerenje of mjerenja) {
+  console.log(mjerenje);
+}</code></pre><h3>Očekivani ispis</h3><pre data-output>4
+3
+4
+7
+5</pre><p><strong>Probaj samostalno:</strong> Dodaj četvrto mjerenje. Provjeri duljinu i objasni koji indeks ima novi element.</p></section><section id="funkcije"><h2>10. Funkcije: postupak koji ponavljaš</h2><p>Funkcije trebaju tek kad pomažu matematičkom postupku ili ponavljanju. Parametar je ime ulazne vrijednosti. return vraća izračunati rezultat pozivu funkcije; sam ga ne ispisuje. U običnom programu ne trebaš obveznu funkciju ni return da bi radio gumb Pokreni.</p><h3>Primjer</h3><pre data-example><code>function trostruko(broj) {
+  return 3 * broj;
+}
+console.log(trostruko(4));
+console.log(trostruko(7));</code></pre><h3>Očekivani ispis</h3><pre data-output>12
+21</pre><p><strong>Probaj samostalno:</strong> Promijeni funkciju tako da računa peterostruku vrijednost. Odaberi dva vlastita probna broja.</p></section><section id="pogreske"><h2>11. Pogreške su dio rada</h2><p>SyntaxError znači da zapis nije ispravan: provjeri navodnike, zagrade i znakove. ReferenceError često znači da ime nije uvedeno ili je drukčije napisano. TypeError može značiti da s vrijednošću pokušavaš radnju koju ne podržava. Ako program radi, ali daje kriv rezultat, usporedi međurezultate s računom na papiru. console.warn() prikazuje upozorenje, a console.error() poruku o pogrešci; ti ispisi sami ne zaustavljaju program.</p><h3>Primjer</h3><pre data-example><code>let broj = 5;
+console.log(&quot;Prije promjene:&quot;, broj);
+broj = broj * 2;
+console.log(&quot;Nakon promjene:&quot;, broj);</code></pre><h3>Očekivani ispis</h3><pre data-output>Prije promjene: 5
+Nakon promjene: 10</pre><p><strong>Probaj samostalno:</strong> Namjerno napiši Broj umjesto broj u zadnjem retku. Pročitaj pogrešku, popravi je i ponovno pokreni.</p></section><section id="spremanje"><h2>12. Spremi i nastavi rad</h2><ol><li>U lekciji upiši ime i prezime. Razred je već određen lekcijom; nema prijave u korisnički račun.</li><li>Za oporavak lokalnog rada odaberi Nastavi spremljeni rad i provjeri čiji rad nastavljaš. Prati status automatskog spremanja. Lokalna pohrana vrijedi samo u istom pregledniku i profilu; brisanje podataka preglednika može je ukloniti.</li><li>Klikni Spremi rad (.js). Preuzetu datoteku sa svojim kodom predaj kroz Teams. Automatsko spremanje nije sigurnosna kopija.</li><li>Za nastavak klikni Učitaj rad i u Preuzimanjima odaberi .js. Potvrdi zamjenu tek nakon spremanja trenutačnog rada. Učitavanje ne pokreće program; klikni Pokreni kada si spreman.</li></ol><p>Ne mijenjaj ekstenziju .js u .txt. Gumb Vrati početni kod mijenja sadržaj uređivača; najprije spremi ono što želiš sačuvati.</p></section></main></html>

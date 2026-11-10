@@ -3,7 +3,7 @@ from pathlib import Path
 import html,json,re
 
 def render(rows):
- body='<header><h1>Bistrići – Matematički laboratorij</h1><p>Matematika kroz istraživanje i programiranje.</p></header><main><h2>Odaberi svoj razred</h2><p>Odaberi lekciju i istražuj matematiku pišući JavaScript izravno u pregledniku.</p><div class="catalog">'
+ body='<header><h1>Bistrići – Matematički laboratorij</h1><p>Matematika kroz istraživanje i programiranje.</p></header><main><p><a href="assets/prirucnik.html">JavaScript priručnik za učenike</a> – objašnjenja, primjeri i kratke vježbe.</p><h2>Odaberi svoj razred</h2><p>Odaberi lekciju i istražuj matematiku pišući JavaScript izravno u pregledniku.</p><div class="catalog">'
  for grade in range(5,9):
   available=sorted((r for r in rows if r['grade']==grade),key=lambda r:r['meeting'])
   body+=f'<details class="panel"><summary><strong>{grade}. razred</strong></summary>'
